@@ -4,16 +4,22 @@
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
     <title> To-Do List </title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body> 
     <div class="container"> 
         <div class="taskApp"> 
             <h1>Your To-Do List</h1>
             <div class="row">
-                <input type="text" id="inputTaskBox" placeholder="Add a new task">
-                <button>Add</button>
+                <textarea id="inputTaskBox" placeholder="Add a new task"></textarea>
+                <button id="addButton" onclick="addTask()">Add</button>
             </div>
+            <ul id="taskList">
+                <li> Task 1 </li>
+                <li> This is an example of a long task. This is to test whether the cell wraps the text properly. As we can see, it does!</li>
+            </ul>
         </div>
     </div>
+<script src="script.js"></script>
 </body>
 </html>
