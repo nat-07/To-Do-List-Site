@@ -14,12 +14,13 @@
 
 .taskApp {
     width: 500px;
-    height: flex;
     margin: 100px auto 20px; 
     padding: 40px 30px 70px;
     background: whitesmoke;
-    border-radius: 10px; 
-}
+    border-radius: 10px;
+    transition: height 0.3s ease;
+    overflow: hidden; /* helps smooth shrink animation */
+  }
 
 .taskApp h1 {
     display: flex; 
@@ -33,6 +34,7 @@
 }
 
 ul li{
+    position: relative; 
     padding: 20px 12px 10px 10px;
     list-style-type:circle;
     list-style-position: inside;
@@ -48,6 +50,33 @@ ul li{
 ul li:last-child{
     border-bottom: none;
 }
+
+ul li.checked{
+    color: rgb(192, 73, 73);
+    list-style-type:disc;
+    text-decoration:line-through;
+}
+
+ul li span {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    width:40px;
+    height:40px;
+    font-size: 20px;
+    color: #555;
+    line-height:40px;
+    text-align: center;
+    transition: background 0.3s ease;
+
+}
+
+ul li span:hover{
+    background: #d8d8d8;
+
+}
+
+
 #addButton {
     margin-left:10px;
     color: white;
@@ -57,7 +86,7 @@ ul li:last-child{
     border-radius: 10px;
     transition: filter 0.3s ease;
     height: 42.5px;
-    width: 50px;
+    width: 90px;
     
 }
 
@@ -80,3 +109,27 @@ ul li:last-child{
     padding: 10px;
     box-sizing: border-box;
   }
+
+.fade-out {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+    overflow: hidden;
+  }
+  
+.fade-in {
+ 
+  transform: translateX(-10px);
+
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    transform: translateX(0);
+    
+    max-height: fit-content;
+  }
+}
